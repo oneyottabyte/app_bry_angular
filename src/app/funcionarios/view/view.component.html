@@ -1,0 +1,51 @@
+<div class="container">
+    <h1>Detalhes Funcionario</h1>
+
+    <a routerLink="/funcionarios" class="btn btn-primary">Voltar</a>
+
+    <div>
+        <p><strong>ID: </strong> {{ funcionario.id }}</p>
+    </div>
+    
+    <div>
+        <p><strong>Login: </strong> {{ funcionario.login }}</p>
+    </div>
+
+    <div>
+        <p> <strong>Nome: </strong>{{ funcionario.nome }}</p>
+    </div>
+
+    <div>
+        <p><strong>CPF: </strong> {{ funcionario.cpf }}</p>
+    </div>
+
+    <div>
+        <p><strong>Email: </strong> {{ funcionario.email }}</p>
+    </div>
+
+    <div>
+        <p><strong>Endereço: </strong> {{ funcionario.endereco }}</p>
+    </div>
+
+    <div>
+        <p><strong>Data de Criação: </strong> {{ funcionario.created_at | date : 'dd/MM/yyyy HH:mm'}}</p>
+    </div>
+
+    <div>
+        <p><strong>Atualizado em: </strong> {{ funcionario.updated_at | date : 'dd/MM/yyyy HH:mm'}}</p>
+    </div>
+
+    <div>
+        <div>
+            <strong>Empresas: </strong>
+            <a routerLink="/funcionarios/{{ funcionario.id }}/empresas" class="btn btn-primary btn-sm">Adicionar Empresa</a>
+        </div>
+        
+        <ol>
+            <li *ngFor="let item of funcionario.empresas">
+                {{item.nome}}
+            </li>
+        </ol>
+    </div>
+
+</div>

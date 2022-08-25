@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h1 class="my-3">CRUD Funcionario</h1>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a routerLink="/funcionarios/create/" class="btn btn-success">Criar Novo Funcionario</a>
+  </div>
+
+  <div class="table-responsive m-3">
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Email</th>
+        <th>Endereço</th>
+        <th>Ações</th>
+      </tr>
+      <tr *ngFor="let funcionario of funcionarios">
+        <td>{{ funcionario.id }}</td>
+        <td>{{ funcionario.nome }}</td>
+        <td>{{ funcionario.cpf }}</td> <!-- | cpf : true-->
+        <td>{{ funcionario.email }}</td>
+        <td>{{ funcionario.endereco }}</td>
+        <td>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="#" [routerLink]="['/funcionarios/', funcionario.id, 'view']"
+              class="btn btn-info btn-sm">Detalhes</a>
+            <a href="#" [routerLink]="['/funcionarios/', funcionario.id, 'update']"
+              class="btn btn-primary btn-sm">Editar</a>
+            <button type="button" href="#" (click)="deleteFuncionario(funcionario.id)"
+              class="btn btn-danger btn-sm">Deletar</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
