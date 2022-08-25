@@ -38,7 +38,7 @@ export class FuncionarioService {
     )
   }  
   create(funcionario: any): Observable<Funcionario> {
-    return this.httpClient.post<Funcionario>(apiURL + '/funcionario/', JSON.stringify(funcionario), this.httpOptions)
+    return this.httpClient.post<Funcionario>(apiURL + '/funcionario', JSON.stringify(funcionario), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

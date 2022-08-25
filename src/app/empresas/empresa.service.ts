@@ -37,7 +37,7 @@ export class EmpresaService {
     )
   }  
   create(empresa: any): Observable<Empresa> {
-    return this.httpClient.post<Empresa>(apiURL + '/empresa/', JSON.stringify(empresa), this.httpOptions)
+    return this.httpClient.post<Empresa>(apiURL + '/empresa', JSON.stringify(empresa), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
